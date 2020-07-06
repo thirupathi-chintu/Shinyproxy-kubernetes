@@ -17,13 +17,12 @@ proxy:
   kubernetes:
     internal-networking: true
     url: http://localhost:8001
-    namespace: shiny
     image-pull-policy: IfNotPresent
     image-pull-secret: ${SecretForDockerRegistry} 
   specs:
   - id: Telephone_Application
-    display-name: Telephones by region
-    description: Application which shows telephone by region
+    display-name: Test by region
+    description: Application which shows test by region
     container-cmd: ["R", "-e", "shiny::runApp('/app/Shiny')"]
     container-image: thirupathip/Rshiny-application:latest
 
