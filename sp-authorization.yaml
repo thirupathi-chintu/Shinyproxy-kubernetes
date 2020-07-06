@@ -4,7 +4,6 @@ metadata:
   name: shinyproxy-auth
 subjects:
   - kind: ServiceAccount
-    name: default
     namespace: shiny
 roleRef:
   kind: ClusterRole
