@@ -17,7 +17,7 @@ proxy:
     password: Guest@123
   container-backend: kubernetes
   kubernetes:
-    namespace: shiny
+    namespace: default
     internal-networking: true
     url: http://localhost:2375
 
