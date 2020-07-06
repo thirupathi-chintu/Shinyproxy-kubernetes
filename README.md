@@ -7,9 +7,9 @@ in the same cluster. To make the application accessible outside the cluster, a N
 
 1. Build the docker image for kube-proxy-sidecar first and push it to container registry:
 
-	`sudo docker build -t ${registry_name}.azurecr.io/kube-proxy-sidecar:0.1.0 kube-proxy-sidecar/`
+	`sudo docker build -t thirupathip/kube-proxy-sidecar:0.1.0 kube-proxy-sidecar/`
 	
-	`sudo docker push ${registry_name}.azurecr.io/kube-proxy-sidecar:0.1.0`
+	`sudo docker push thirupathip/kube-proxy-sidecar:0.1.0`
 
 2. Create a new namespace as "shiny" in your kubernetes cluster. We will do deployments, service and authorization in the same namespace.
 
@@ -17,8 +17,8 @@ in the same cluster. To make the application accessible outside the cluster, a N
 
 3. Go to folder shinyproxy-application and replace ${SecretForDockerRegistry} and ${registry_name} in application.yml with your docker container registry secrets and it's name. On top I created Tom and Jon login users as admin and Guest user as non-admin user
 	
-	`sudo docker build -t ${registry_name}.azurecr.io/shinyproxy-application:latest shinyproxy-application/`
-	`sudo docker push ${registry_name}.azurecr.io/shinyproxy-application:latest`
+	`sudo docker build -t thirupathip/shinyproxy-application:latest shinyproxy-application/`
+	`sudo docker push thirupathip/shinyproxy-application:latest`
 
 4. Run the below command to do a deployment which will create the pod having two containers 'shinyproxy-application' and 'kube-proxy-sidecar' in the namespace shiny:
 

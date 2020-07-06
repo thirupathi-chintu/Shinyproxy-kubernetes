@@ -16,9 +16,8 @@ proxy:
   container-backend: kubernetes
   kubernetes:
     internal-networking: true
-    url: http://localhost:8001
-    image-pull-policy: IfNotPresent
-    image-pull-secret: ${SecretForDockerRegistry} 
+    url: http://127.0.0.1:8001
+    image-pull-policy: IfNotPresent 
   specs:
   - id: Telephone_Application
     display-name: Test by region
