@@ -1,4 +1,6 @@
 proxy:
+  heartbeat-rate: 10000
+  heartbeat-timeout: 60000
   port: 8080
   authentication: simple
   admin-groups: admins
@@ -16,15 +18,24 @@ proxy:
   container-backend: kubernetes
   kubernetes:
     internal-networking: true
-    url: http://127.0.0.1:8001
-    image-pull-policy: IfNotPresent 
+    url: http://localhost:2375
   specs:
-  - id: Telephone_Application
-    display-name: Test by region
-    description: Application which shows test by region
-    container-cmd: ["R", "-e", "shiny::runApp('/app/Shiny')"]
-    container-image: thirupathip/Rshiny-application:latest
+  - id: 01_hello
+    display-name: Hello Application
+    description: Application which demonstrates the basics of a Shiny app
+    container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
+    container-image: openanalytics/shinyproxy-demo
+    container-network: sp-example-net
+  - id: 06_tabsets
+    container-cmd: ["R", "-e", "shinyproxy::run_06_tabsets()"]
+    container-image: openanalytics/shinyproxy-demo
+    container-network: sp-example-net
+  - id: hgmd
+    container-cmd: ["R", "-e", "runApp('/root/hgmd/')"]
+    docker-image: hgmd/hgmd
+    container-network: sp-example-net
 
 logging:
+
   file:
     shinyproxy.log
