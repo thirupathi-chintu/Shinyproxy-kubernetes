@@ -19,7 +19,7 @@ proxy:
   kubernetes:
     namespace: default
     internal-networking: true
-    url: http://localhost:2375
+    url: http://127.0.0.1:8001
 
   specs:
   - id: 01_hello
