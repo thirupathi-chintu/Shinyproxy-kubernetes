@@ -36,7 +36,7 @@ proxy:
     display-name: Telephones by region
     description: Application which shows telephone by region
     container-cmd: ["R", "-e", "shiny::runApp('/app/Shiny')"]
-    container-image: thirupathip/shinyproxy-application:latest
+    container-image: thirupathip/Rshiny-application:latest
 
 logging:
 
