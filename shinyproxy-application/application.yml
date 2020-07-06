@@ -32,10 +32,11 @@ proxy:
     container-cmd: ["R", "-e", "shinyproxy::run_06_tabsets()"]
     container-image: openanalytics/shinyproxy-demo
     container-network: sp-example-net
-  - id: hgmd
-    container-cmd: ["R", "-e", "runApp('/root/hgmd/')"]
-    docker-image: hgmd/hgmd
-    container-network: sp-example-net
+  - id: Telephone_Application
+    display-name: Telephones by region
+    description: Application which shows telephone by region
+    container-cmd: ["R", "-e", "shiny::runApp('/app/Shiny')"]
+    container-image: thirupathip/Rshiny-application:latest
 
 logging:
 
