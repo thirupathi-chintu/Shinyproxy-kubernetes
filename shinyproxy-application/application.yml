@@ -3,14 +3,14 @@ proxy:
   authentication: simple
   admin-groups: admins
   users:
-  - name: Tom
-    password: Tom@123
+  - name: admin
+    password: admin@123
     groups: admins
-  - name: Jon
-    password: Jon@123
+  - name: thiru
+    password: thiru@123
     groups: admins
-  - name: Adam
-    password: Adam@123
+  - name: sirpi
+    password: sirpi@123
   - name: Guest
     password: Guest@123
   container-backend: kubernetes
@@ -25,7 +25,7 @@ proxy:
     display-name: Telephones by region
     description: Application which shows telephone by region
     container-cmd: ["R", "-e", "shiny::runApp('/app/Shiny')"]
-    container-image: ${registry_name}.azurecr.io/Rshiny-application:latest
+    container-image: thirupathip/Rshiny-application:latest
 
 logging:
   file:

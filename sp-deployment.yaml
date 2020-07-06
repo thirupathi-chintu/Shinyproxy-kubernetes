@@ -15,14 +15,12 @@ spec:
     spec:
       containers:
       - name: shinyproxy
-        image: ${registry_name}.azurecr.io/shinyproxy-application:latest
+        image: thirupathip/shinyproxy-application:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
       - name: kube-proxy-sidecar
-        image: ${registry_name}.azurecr.io/kube-proxy-sidecar:0.1.0
+        image: thirupathip/kube-proxy-sidecar:0.1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8001
-      imagePullSecrets:
-      - name: ${SecretForDockerRegistry}
